@@ -1,5 +1,5 @@
-let firstCard = 10
-let secondCard = 4
+let firstCard = Math.floor(Math.random() * (11 - 2 + 1)) + 2
+let secondCard = Math.floor(Math.random() * (11 - 2 + 1)) + 2
 let sum = firstCard + secondCard
 let hasBlackJack = false
 let isAlive = true
@@ -21,4 +21,10 @@ function startGame() {
         isAlive = false
     }
     messageEl.textContent = message
+}
+
+function newCard(){
+    let thirdCard = Math.floor(Math.random() * (11 - 2 + 1)) + 2
+    sum += thirdCard
+    startGame()
 }
