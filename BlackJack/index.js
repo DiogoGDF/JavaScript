@@ -1,6 +1,7 @@
 let firstCard = Math.floor(Math.random() * (11 - 2 + 1)) + 2
 let secondCard = Math.floor(Math.random() * (11 - 2 + 1)) + 2
-let card = 0
+let count = 0
+let cards = [firstCard, secondCard]
 let sum = firstCard + secondCard
 let hasBlackJack = false
 let isAlive = true
@@ -10,7 +11,7 @@ let sumEl = document.getElementById("sum-el")
 let cardsEl = document.getElementById("cards-el")
 
 function startGame(){ 
-    cardsEl.textContent = "Cards: " + firstCard + " " + secondCard
+    cardsEl.textContent = "Cards: " + cards[count++] + " " + cards[count++]
     renderGame() 
 }
 
@@ -29,8 +30,9 @@ function renderGame() {
 }
 
 function newCard(){
-    card = Math.floor(Math.random() * (11 - 2 + 1)) + 2
+    let card = Math.floor(Math.random() * (11 - 2 + 1)) + 2
+    cards.push(card)
     sum += card
     renderGame()
-    cardsEl.textContent += " " + card
+    cardsEl.textContent += " " + cards[count++]
 }
