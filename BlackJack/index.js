@@ -15,6 +15,7 @@ function getRandomNumber(){
 
 function startGame(){ 
     isAlive = true;
+    cardBtn.textContent = "NEW CARD";
     cards[0] = getRandomNumber();
     cards[1] = getRandomNumber();
     sum = cards[0] + cards[1];
@@ -44,7 +45,7 @@ function newCard(){
         sum += card;
         renderGame();
         cardsEl.textContent += " " + cards[count++];
-    } else {
+    } else if (count === 0){
         cardBtn.textContent = "You have to start a new game first!";
     }
 }
