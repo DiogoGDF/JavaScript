@@ -14,13 +14,15 @@ function getRandomNumber(){
 }
 
 function startGame(){ 
-    isAlive = true;
-    cardBtn.textContent = "NEW CARD";
-    cards[0] = getRandomNumber();
-    cards[1] = getRandomNumber();
-    sum = cards[0] + cards[1];
-    cardsEl.textContent = "Cards: " + cards[count++] + " " + cards[count++];
-    renderGame();
+    if (count === 0){
+        isAlive = true;
+        cardBtn.textContent = "NEW CARD";
+        cards[0] = getRandomNumber();
+        cards[1] = getRandomNumber();
+        sum = cards[0] + cards[1];
+        cardsEl.textContent = "Cards: " + cards[count++] + " " + cards[count++];
+        renderGame();
+    }
 }
 
 function renderGame() {
@@ -30,6 +32,7 @@ function renderGame() {
     } else if (sum === 21) {
         message = "You've got Blackjack!";
         hasBlackJack = true;
+        cardBtn.textContent = "Game Ended!";
     } else {
         message = "You're out of the game!";
         isAlive = false;
