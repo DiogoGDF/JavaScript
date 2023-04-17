@@ -44,8 +44,6 @@ function addToList(){
 }
 
 function list(){
-    let lista = ""
-    for(let i = 0; i < myLeads.length; i++)
-        lista += myLeads[i]
+    const lista = myLeads.join("")
     ulEl.innerHTML = lista
 }

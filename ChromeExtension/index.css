@@ -20,12 +20,14 @@ input:focus{
 }
 
 button {
-    margin-top: 4px;
+    margin-top: 5px;
     color: #5f9341;
     font-weight: bold;
     background: #292a2d;
     border: 1px solid #5f9341;
     padding: 10px 20px;
+} button:hover {
+  cursor: pointer;
 }
 
 #delete-btn{
@@ -36,6 +38,8 @@ button {
     background-color: #f85149;
     color: #292a2d;
 }
+
+
 
 p{
     color:#f85149;
