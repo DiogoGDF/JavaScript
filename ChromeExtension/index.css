@@ -3,35 +3,66 @@ body {
     padding: 10px;
     font-family: Arial, Helvetica, sans-serif;
     background: #202124;
-    color: whitesmoke;
-    min-width: 200px;
+    min-width: 249px;
 }
 
 input {
     width: 100%;
     padding: 10px;
     box-sizing: border-box;
-    border: 1px solid #5f9341;
+    border: 1px solid grey;
     background: #292a2d;
-    color: whitesmoke;
+    color: lightgray;
+    font-weight: bold;
+}
+input:focus{
+    outline: none;
 }
 
 button {
     margin-top: 4px;
-    color: whitesmoke;
+    color: #5f9341;
     font-weight: bold;
-    background: #5f9341;
-    border: none;
+    background: #292a2d;
+    border: 1px solid #5f9341;
     padding: 10px 20px;
+}
+
+#delete-btn{
+    border-color: #f85149;
+    color: #f85149;
+}
+#delete-btn.clicked{
+    background-color: #f85149;
+    color: #292a2d;
+}
+
+p{
+    color:#f85149;
+    font-weight: bold;
 }
 
 ul{
     list-style: none;
     padding: 0px;
-    color: #5f9341;
+    color: grey;
     font-weight: bold;
 }
 
 li{
     margin-top: 5px;
+}
+
+/* scrollbar customization */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #292a2d;
+}
+::-webkit-scrollbar-thumb {
+  background: #34383d;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

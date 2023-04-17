@@ -1,10 +1,12 @@
 const inputBtn = document.getElementById("input-btn")
 const inputEl = document.getElementById("input-el")
 const ulEl = document.getElementById("ul-el")
+const deleteBtn = document.getElementById("delete-btn")
+const deleteMessage = document.getElementById("delete-message")
 let myLeads = []
-//let count = 0
+let clicked = false
 
-let leadsFromLocalStorage = JSON.parse(localStorage.getItem("myLeads"))
+const leadsFromLocalStorage = JSON.parse(localStorage.getItem("myLeads"))
 if(leadsFromLocalStorage){
     myLeads = leadsFromLocalStorage
     list()
@@ -17,6 +19,22 @@ inputEl.addEventListener("keypress", function(event) {
     addToList();
   }
 });
+
+//deleteBtn.addEventListener("click", function(){})
+deleteBtn.addEventListener("click", function(){
+    if(!clicked){
+        deleteBtn.classList.add("clicked")
+        deleteMessage.textContent = "Click again to delete all"
+        clicked = true
+    }else{
+        deleteBtn.classList.remove("clicked")
+        deleteMessage.textContent = ""
+        localStorage.clear();
+        myLeads = [];
+        list();
+        clicked = false
+    }
+})
 
 function addToList(){
     myLeads.push(`<li>${inputEl.value}</li>`)
