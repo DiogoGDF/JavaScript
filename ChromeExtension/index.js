@@ -37,7 +37,14 @@ deleteBtn.addEventListener("click", function(){
 })
 
 function addToList(){
-    myLeads.push(`<li>${inputEl.value}</li>`)
+    let listItem
+    const usrInput = inputEl.value
+    if (usrInput.startsWith("http") || usrInput.startsWith("https") || usrInput.startsWith("www.")) {
+        listItem = `<li><a href='${usrInput}' target='_blank' rel='external'>${usrInput}</a></li>`
+    } else {
+        listItem = `<li>${usrInput}</li>`
+    }
+    myLeads.push(listItem)
     localStorage.setItem("myLeads", JSON.stringify(myLeads))
     inputEl.value = ""
     list()
