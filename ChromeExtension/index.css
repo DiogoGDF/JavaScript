@@ -4,16 +4,8 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     background: #202124;
     color: whitesmoke;
+    min-width: 200px;
 }
-
-/*
-
-Style our app according to the provided design!
-
-green color -> #5f9341
-
-*/
-
 
 input {
     width: 100%;
@@ -31,4 +23,15 @@ button {
     background: #5f9341;
     border: none;
     padding: 10px 20px;
+}
+
+ul{
+    list-style: none;
+    padding: 0px;
+    color: #5f9341;
+    font-weight: bold;
+}
+
+li{
+    margin-top: 5px;
 }
