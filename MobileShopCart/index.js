@@ -19,8 +19,10 @@ function clearInputFieldEl(){
 }
 
 function appendItemToShoppingListEl(itemValue){
-    shoppingListEl.innerHTML += `<li>${itemValue}</li>`
-
+    //shoppingListEl.innerHTML += `<li>${itemValue}</li>`
+    let newEl = document.createElement("li")
+    newEl.textContent = itemValue[1]
+    shoppingListEl.append(newEl)
 }
 
 function clearList(){
@@ -29,20 +31,12 @@ function clearList(){
 
 addButtonEl.addEventListener("click", function() {
     let inputValue = inputFieldEl.value
-    
     push(shoppingListInDB, inputValue)
-    console.log(`${inputValue} added to database`)
     clearInputFieldEl()
 })
 
-/*
-Challenge:
-Call the onValue function with
-shoppingListInDB as the first argument and
-function(snapshot) {} as the second argument
-*/
 onValue(shoppingListInDB, function(snapshot){
-    let items = Object.values(snapshot.val())
+    let items = Object.entries(snapshot.val())
     clearList()
     for(let i = 0; i < items.length; i++){
         let currentItem = items[i]
