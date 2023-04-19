@@ -37,8 +37,11 @@ function clearList(){
 
 function addFromInput(){
     let inputValue = inputFieldEl.value
-    push(shoppingListInDB, inputValue)
-    clearInputFieldEl()
+    if(inputValue !== null && inputValue !== ""){
+        console.log(inputValue)
+        push(shoppingListInDB, inputValue)
+        clearInputFieldEl()
+    }
 }
 
 addButtonEl.addEventListener("click", addFromInput)
