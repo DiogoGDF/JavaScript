@@ -6,11 +6,10 @@ function updateProgressBar(percentage) {
   progressBar.style.width = percentage + '%';
 }
 
-let lvl = 20;
-let xp = 154;
-let totLvl = 1000;
-let percentage = xp/totLvl;
-percentage = percentage * 100;
+let lvl = 1;
+let xp = 1;
+let totLvl = 10;
+let percentage = xp/totLvl * 100;
 updateProgressBar(percentage); 
 
 levelEl.textContent = `Level: ${lvl} (${xp}/${totLvl})`;
