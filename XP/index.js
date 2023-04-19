@@ -1,5 +1,5 @@
 const progressBar = document.querySelector('.progress-bar');
-const levelEl = document.getElementById("level");
+const levelEl = document.getElementById("level-el");
 const testEl = document.getElementById("test");
 
 function updateProgressBar(percentage) {
