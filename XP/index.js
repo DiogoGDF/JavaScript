@@ -1,6 +1,10 @@
 const progressBar = document.querySelector('.progress-bar');
 const levelEl = document.getElementById("level-el");
 const testEl = document.getElementById("test");
+const atividadeEl = document.getElementById("atividade-el");
+const xpEl = document.getElementById("xp-el");
+const historico = document.getElementById("historico");
+const log = document.getElementById("log");
 
 function updateProgressBar(percentage) {
   progressBar.style.width = percentage + '%';
@@ -13,4 +17,21 @@ let percentage = xp/totLvl * 100;
 updateProgressBar(percentage); 
 
 levelEl.textContent = `Level: ${lvl} (${xp}/${totLvl})`;
-testEl.textContent = i;
+//testEl.textContent = i;
+
+function cadastrar(){
+  const atividadeStr = atividadeEl.value;
+  const xpStr = xpEl.value;
+  const str = `<li>${atividadeStr} | XP:${xpStr}</li>`
+  historico.textContent += str
+  atividadeEl.value = ""
+  xpEl.value = ""
+}
+
+log.addEventListener("click", cadastrar);
+xpEl.addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    cadastrar();
+  }
+});
