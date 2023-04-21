@@ -22,13 +22,16 @@ levelEl.textContent = `Level: ${lvl} (${xp}/${totLvl})`;
 function cadastrar(){
   const atividadeStr = atividadeEl.value;
   const xpStr = xpEl.value;
-  const str = `<li>${atividadeStr} | XP:${xpStr}</li>`
-  historico.textContent += str
-  atividadeEl.value = ""
-  xpEl.value = ""
+  const str = `<li>${atividadeStr} | XP:${xpStr}</li>`;
+  atividadeEl.value = "";
+  xpEl.value = "";
+  historico.innerHTML += str
 }
 
-log.addEventListener("click", cadastrar);
+log.addEventListener("click", function(event){
+  event.preventDefault();
+  cadastrar();
+});
 xpEl.addEventListener("keypress", function(event) {
   if (event.key === "Enter") {
     event.preventDefault();
