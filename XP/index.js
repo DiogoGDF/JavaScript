@@ -101,43 +101,25 @@ function appendItemToHistory(itemValue){
     newDateEl.setAttribute('data-date', activityDate);
     newDateEl.textContent = activityDate;
     historyEl.append(newDateEl);
-  } else {
-    // If an existing date element is found, move it to the correct position
-    const dateEls = document.querySelectorAll('#history-section h3');
-    for (let i = 0; i < dateEls.length; i++) {
-      if (dateEls[i] === existingDateEl) {
-        if (index < i) {
-          historyEl.insertBefore(existingDateEl, dateEls[index].previousElementSibling);
-        } else if (index > i) {
-          historyEl.insertBefore(existingDateEl, dateEls[index].nextElementSibling);
-        }
-        break;
-      }
-    }
-  }
-  const ulEl = existingDateEl ? existingDateEl.nextElementSibling : historyEl.lastElementChild;
-  if (ulEl) {
-    let newEl = document.createElement("li");
-    newEl.textContent = `${activityName} | XP: ${activityXP}`
-    ulEl.append(newEl);
+  } 
+  //const ulEl = existingDateEl ? existingDateEl.nextElementSibling : historyEl.lastElementChild;
   //let newEl = document.createElement("li");
   //newEl.textContent = `${activityName} | XP: ${activityXP}`
   //ulEl.append(newEl);
   //const ulEl = historyEl.children[index + 1].querySelector('ul');
-  //let newEl = document.createElement("li")
-  //let newDateEl = document.createElement("h3");
-  //newDateEl.textContent = activityDate;
-  //newEl.textContent = `${activityName} | XP: ${activityXP}`
+  let newEl = document.createElement("li")
+  let newDateEl = document.createElement("h3");
+  newDateEl.textContent = activityDate;
+  newEl.textContent = `${activityName} | XP: ${activityXP}`
   //historyEl.append(newDateEl);
-  //historyEl.append(newEl);
-  //console.log(dates)
+  historyEl.append(newEl);
+  console.log(dates)
 
   newEl.addEventListener("dblclick", function(){
     let exactLocationOfStoryInDB = ref(database, `historyXP/${itemId}`)
     remove(exactLocationOfStoryInDB)
     location.reload();
   })
-  }
 }
 
 function clearList(){
@@ -145,10 +127,6 @@ function clearList(){
   dates = [];
   const dateEls = document.querySelectorAll('#history-section h3');
   dateEls.forEach(el => el.remove());
-}
-
-function start(){
-
 }
 
 onValue(historyInDB, function(snapshot){
