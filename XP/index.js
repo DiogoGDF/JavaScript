@@ -55,6 +55,10 @@ function appendItemToHistory(itemValue){
     newEl.textContent = itemName
     historyEl.append(newEl);
 
+    newEl.addEventListener("dblclick", function(){
+        let exactLocationOfStoryInDB = ref(database, `historyXP/${itemId}`)
+        remove(exactLocationOfStoryInDB)
+    })
 }
 
 function clearList(){
