@@ -1,9 +1,10 @@
 body{
-    background-color: #202124;
+    background-color: #1a1c1d;
     color: lightgray;
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 #container{
@@ -14,10 +15,14 @@ body{
   max-width: 320px;
 }
 
+p{
+  font-size: large;
+}
+
 .progress-bar-container {
   width: 100%;
   max-width: 320px;
-  background-color: lightgray;
+  background-color: #313537;
   border-radius: 90px;
 }
 
@@ -31,16 +36,19 @@ body{
 }
 
 input{
-    background-color: lightgray;
+    background-color: #313537;
     border: none;
     border-radius: 5px;
     margin: 10px auto;
+    outline: none;
+    color: #c2bdb5;
 }
 
 form{
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   text-align: center;
 }
 
@@ -56,17 +64,19 @@ h2{
 
 
 #date-el{
-  margin-top: 0;
-  color: #393a3f;
+  color: #c2bdb5;
+  margin-bottom: 20px;
+  padding: 10px 20px;
 }
 
 #log{
   border: 2px solid #3b981c;
   background-color: #42a91f;
-  padding: 5px;
+  padding: 20px 100px;
   border-radius: 5px;
-  color: #393a3f;
+  color: lightgray;
   font-weight: bold;
+  font-size: large;
 }
 
 #history-sec-title{
