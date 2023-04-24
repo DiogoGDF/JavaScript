@@ -1,26 +1,30 @@
-.progress-bar-container {
-  width: 100%;
-  max-width: 450px;
-  background-color: lightgray;
-  border-radius: 90px;
-}
-
-.progress-bar {
-  height: 20px;
-  background-color: green;
-  width: 0%;
-  max-width: 450px;
-  transition: width 0.5s ease-in-out;
-  border-radius: 90px;
-}
-
 body{
     background-color: #202124;
     color: lightgray;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: start;
+}
+
+#container{
+  margin: 50px auto;
+  max-width: 320px;
+}
+
+.progress-bar-container {
+  width: 100%;
+  max-width: 300px;
+  background-color: lightgray;
+  border-radius: 90px;
+}
+
+.progress-bar {
+  height: 20px;
+  background-color: #3b981c;
+  width: 0%;
+  max-width: 300px;
+  transition: width 0.5s ease-in-out;
+  border-radius: 90px;
 }
 
 input{
@@ -35,11 +39,12 @@ input{
 form{
   display: flex;
   flex-direction: column;
-  align-items: left;
+  align-items: center;
+  text-align: center;
 }
 
 #activity-el{
-  width: 335px;
+  width: 300px;
 }
 
 #xp-el{
@@ -56,7 +61,7 @@ form{
   border: 2px solid #3b981c;
   background-color: #42a91f;
   padding: 5px;
-  width: 150px;
+  width: 250px;
   border-radius: 5px;
   color: #393a3f;
   font-weight: bold;
