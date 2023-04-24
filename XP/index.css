@@ -22,3 +22,10 @@ input{
     border: none;
     border-radius: 5px;
 }
+
+#log{
+  border: none;
+  background-color: lightgray;
+  padding: 2px 4px;
+  border-radius: 5px;
+}

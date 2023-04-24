@@ -8,10 +8,9 @@ const historyInDB = ref(database, "historyXP");
 
 const progressBar = document.querySelector('.progress-bar');
 const levelEl = document.getElementById("level-el");
-const testEl = document.getElementById("test");
 const atividadeEl = document.getElementById("atividade-el");
 const xpEl = document.getElementById("xp-el");
-const historico = document.getElementById("historico");
+const historyEl = document.getElementById("history-el");
 const log = document.getElementById("log");
 
 function updateProgressBar(percentage) {
@@ -33,11 +32,12 @@ function cadastrar(){
   const currentDate = new Date();
   const options = {day: '2-digit', month: '2-digit', year: '2-digit'};
   const dateInFormat = currentDate.toLocaleString('en-GB', options);
-  const str = `<li>${dateInFormat}: ${atividadeStr} | XP:${xpStr}</li>`;
+  //const str = `<li>${dateInFormat}: ${atividadeStr} | XP:${xpStr}</li>`;
   const strDb = `${dateInFormat}: ${atividadeStr} | XP:${xpStr}`;
   atividadeEl.value = "";
   xpEl.value = "";
-  historico.innerHTML += str;
+  //historico.innerHTML += str;
+  //appendItemToHistory(str);
   push(historyInDB, strDb)
 }
 
@@ -57,17 +57,17 @@ function appendItemToHistory(itemValue){
     let itemName = itemValue[1]
     let newEl = document.createElement("li")
     newEl.textContent = itemName
-    historico.innerHTML += newEl;
+    historyEl.append(newEl);
 
-    newEl.addEventListener("dblclick", function(){
-        let exactLocationOfStoryInDB = ref(database, `shoppingList/${itemId}`)
-        remove(exactLocationOfStoryInDB)
-    })
+}
+
+function clearList(){
+  historyEl.innerHTML = "";
 }
 
 onValue(historyInDB, function(snapshot){
     if (snapshot.exists()){
-        let items = Object.entries(snapshot.val())
+        let items = Object.entries(snapshot.val());
         clearList()
         for(let i = 0; i < items.length; i++){
             let currentItem = items[i]
