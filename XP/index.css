@@ -1,5 +1,6 @@
 .progress-bar-container {
   width: 100%;
+  max-width: 500px;
   background-color: lightgray;
   border-radius: 90px;
 }
@@ -8,6 +9,7 @@
   height: 20px;
   background-color: green;
   width: 0%;
+  max-width: 500px;
   transition: width 0.5s ease-in-out;
   border-radius: 90px;
 }
@@ -29,11 +31,11 @@ input{
 form{
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
 }
 
 #activity-el{
-  width: 370px;
+  width: 335px;
 }
 
 #xp-el{
