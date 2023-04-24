@@ -8,7 +8,7 @@ const historyInDB = ref(database, "historyXP");
 
 const progressBar = document.querySelector('.progress-bar');
 const levelEl = document.getElementById("level-el");
-const atividadeEl = document.getElementById("atividade-el");
+const activityEl = document.getElementById("activity-el");
 const xpEl = document.getElementById("xp-el");
 const historyEl = document.getElementById("history-el");
 const log = document.getElementById("log");
@@ -24,31 +24,27 @@ let percentage = xp/totLvl * 100;
 updateProgressBar(percentage); 
 
 levelEl.textContent = `Level: ${lvl} (${xp}/${totLvl})`;
-//testEl.textContent = i;
 
-function cadastrar(){
-  const atividadeStr = atividadeEl.value;
+function register(){
+  const activityStr = activityEl.value;
   const xpStr = xpEl.value;
   const currentDate = new Date();
   const options = {day: '2-digit', month: '2-digit', year: '2-digit'};
   const dateInFormat = currentDate.toLocaleString('en-GB', options);
-  //const str = `<li>${dateInFormat}: ${atividadeStr} | XP:${xpStr}</li>`;
-  const strDb = `${dateInFormat}: ${atividadeStr} | XP:${xpStr}`;
-  atividadeEl.value = "";
+  const strDb = `${dateInFormat}: ${activityStr} | XP:${xpStr}`;
+  activityEl.value = "";
   xpEl.value = "";
-  //historico.innerHTML += str;
-  //appendItemToHistory(str);
   push(historyInDB, strDb)
 }
 
 log.addEventListener("click", function(event){
   event.preventDefault();
-  cadastrar();
+  register();
 });
 xpEl.addEventListener("keypress", function(event) {
   if (event.key === "Enter") {
     event.preventDefault();
-    cadastrar();
+    register();
   }
 });
 
