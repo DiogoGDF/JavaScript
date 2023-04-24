@@ -20,12 +20,14 @@ body{
 input{
     background-color: lightgray;
     border: none;
+    padding-top: 4px;
+    padding-bottom: 4px;
     border-radius: 5px;
 }
 
 #log{
-  border: none;
-  background-color: lightgray;
+  border: 2px solid #3b981c;
+  background-color: #42a91f;
   padding: 2px 4px;
   border-radius: 5px;
 }

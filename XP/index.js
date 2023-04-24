@@ -13,28 +13,31 @@ const xpEl = document.getElementById("xp-el");
 const historyEl = document.getElementById("history-el");
 const log = document.getElementById("log");
 
-function updateProgressBar(percentage) {
-  progressBar.style.width = percentage + '%';
-}
-
 let lvl = 1;
 let xp = 1;
-let totLvl = 10;
+let totLvl = 10000;
 let percentage = xp/totLvl * 100;
-updateProgressBar(percentage); 
 
-levelEl.textContent = `Level: ${lvl} (${xp}/${totLvl})`;
+function updateProgressBar() {
+  percentage = xp/totLvl * 100;
+  progressBar.style.width = percentage + '%';
+  levelEl.textContent = `Level: ${lvl} (${xp}/${totLvl})`;
+}
+updateProgressBar(); 
+
 
 function register(){
   const activityStr = activityEl.value;
   const xpStr = xpEl.value;
-  const currentDate = new Date();
-  const options = {day: '2-digit', month: '2-digit', year: '2-digit'};
-  const dateInFormat = currentDate.toLocaleString('en-GB', options);
-  const strDb = `${dateInFormat}: ${activityStr} | XP:${xpStr}`;
-  activityEl.value = "";
-  xpEl.value = "";
-  push(historyInDB, strDb)
+  if (activityStr !== "" && xpStr !== ""){
+    const currentDate = new Date();
+    const options = {day: '2-digit', month: '2-digit', year: '2-digit'};
+    const dateInFormat = currentDate.toLocaleString('en-GB', options);
+    const strDb = `${dateInFormat}|${activityStr}|${xpStr}`;
+    activityEl.value = "";
+    xpEl.value = "";
+    push(historyInDB, strDb)
+  }
 }
 
 log.addEventListener("click", function(event){
@@ -51,12 +54,18 @@ xpEl.addEventListener("keypress", function(event) {
 function appendItemToHistory(itemValue){
     let itemId = itemValue[0]
     let itemName = itemValue[1]
+    let arrItem = itemName.split('|');
+    xp += parseInt(arrItem[2]);
+    updateProgressBar();
     let newEl = document.createElement("li")
     newEl.textContent = itemName
     historyEl.append(newEl);
 
     newEl.addEventListener("dblclick", function(){
         let exactLocationOfStoryInDB = ref(database, `historyXP/${itemId}`)
+        let arrItem = itemName.split('|');
+        xp -= parseInt(arrItem[2]);
+        updateProgressBar();
         remove(exactLocationOfStoryInDB)
     })
 }
