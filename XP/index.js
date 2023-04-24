@@ -102,18 +102,11 @@ function appendItemToHistory(itemValue){
     newDateEl.textContent = activityDate;
     historyEl.append(newDateEl);
   } 
-  //const ulEl = existingDateEl ? existingDateEl.nextElementSibling : historyEl.lastElementChild;
-  //let newEl = document.createElement("li");
-  //newEl.textContent = `${activityName} | XP: ${activityXP}`
-  //ulEl.append(newEl);
-  //const ulEl = historyEl.children[index + 1].querySelector('ul');
   let newEl = document.createElement("li")
   let newDateEl = document.createElement("h3");
   newDateEl.textContent = activityDate;
   newEl.textContent = `${activityName} | XP: ${activityXP}`
-  //historyEl.append(newDateEl);
   historyEl.append(newEl);
-  console.log(dates)
 
   newEl.addEventListener("dblclick", function(){
     let exactLocationOfStoryInDB = ref(database, `historyXP/${itemId}`)
@@ -135,7 +128,6 @@ onValue(historyInDB, function(snapshot){
     clearList()
     for(let i = 0; i < items.length; i++){
         let currentItem = items[i]
-        //document.addEventListener("DOMContentLoaded", function(){appendItemToHistory(currentItem)});
         appendItemToHistory(currentItem);
     }
   }else{
