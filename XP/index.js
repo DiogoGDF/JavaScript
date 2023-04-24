@@ -13,6 +13,7 @@ const xpEl = document.getElementById("xp-el");
 const historyEl = document.getElementById("history-el");
 const dateEl = document.getElementById("date-el");
 const log = document.getElementById("log");
+let dates = []
 
 let lvl = 1;
 let xp = 1;
@@ -49,6 +50,7 @@ function register(){
     const strDb = `${activityDate}|${activityStr}|${xpStr}`;
     activityEl.value = "";
     xpEl.value = "";
+    dateEl.value = "";
     push(historyInDB, strDb);
   }
 }
@@ -64,21 +66,28 @@ xpEl.addEventListener("keypress", function(event) {
   }
 });
 
-function appendItemToHistory(itemValue){
-    let itemId = itemValue[0]
-    let itemName = itemValue[1]
-    let arrItem = itemName.split('|');
-    xp += parseInt(arrItem[2]);
-    updateProgressBar();
-    let newEl = document.createElement("li")
-    newEl.textContent = itemName
-    historyEl.append(newEl);
+function findDate(date){
+  let newDateEl = document.createElement("h3");
+  newDateEl.textContent = date;
+  historyEl.append(newDateEl);
+}
 
-    newEl.addEventListener("dblclick", function(){
-        let exactLocationOfStoryInDB = ref(database, `historyXP/${itemId}`)
-        remove(exactLocationOfStoryInDB)
-        location.reload();
-    })
+function appendItemToHistory(itemValue){
+  let itemId = itemValue[0]
+  let itemName = itemValue[1]
+  let arrItem = itemName.split('|');
+  xp += parseInt(arrItem[2]);
+  updateProgressBar();
+  findDate(arrItem[0])
+  let newEl = document.createElement("li")
+  newEl.textContent = `${arrItem[1]} | ${arrItem[2]}`
+  historyEl.append(newEl);
+
+  newEl.addEventListener("dblclick", function(){
+    let exactLocationOfStoryInDB = ref(database, `historyXP/${itemId}`)
+    remove(exactLocationOfStoryInDB)
+    location.reload();
+  })
 }
 
 function clearList(){
@@ -86,14 +95,14 @@ function clearList(){
 }
 
 onValue(historyInDB, function(snapshot){
-    if (snapshot.exists()){
-        let items = Object.entries(snapshot.val());
-        clearList()
-        for(let i = 0; i < items.length; i++){
-            let currentItem = items[i]
-            appendItemToHistory(currentItem)
-        }
-    }else{
-        clearList()
+  if (snapshot.exists()){
+    let items = Object.entries(snapshot.val());
+    clearList()
+    for(let i = 0; i < items.length; i++){
+        let currentItem = items[i]
+        appendItemToHistory(currentItem)
     }
+  }else{
+    clearList()
+  }
 })

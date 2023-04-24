@@ -45,6 +45,7 @@ form{
 #date-el{
   margin-top: 0;
   width: 120px;
+  color: #393a3f;
 }
 
 #log{
@@ -53,4 +54,6 @@ form{
   padding: 5px;
   width: 150px;
   border-radius: 5px;
+  color: #393a3f;
+  font-weight: bold;
 }
