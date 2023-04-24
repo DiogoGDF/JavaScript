@@ -63,10 +63,8 @@ function appendItemToHistory(itemValue){
 
     newEl.addEventListener("dblclick", function(){
         let exactLocationOfStoryInDB = ref(database, `historyXP/${itemId}`)
-        let arrItem = itemName.split('|');
-        xp -= parseInt(arrItem[2]);
-        updateProgressBar();
         remove(exactLocationOfStoryInDB)
+        location.reload();
     })
 }
 
