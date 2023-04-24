@@ -43,10 +43,10 @@ function register(){
     } else {
       const currentDate = new Date();
       day = currentDate.getDate().toString().padStart(2, '0');
-      month = currentDate.getMonth().toString().padStart(2, '0');
+      month = (currentDate.getMonth() + 1).toString().padStart(2, '0');
       year = currentDate.getFullYear();
     }
-    const activityDate = `${day}-${month}-${year}`
+    const activityDate = `${year}-${month}-${day}`
     const strDb = `${activityDate}|${activityStr}|${xpStr}`;
     activityEl.value = "";
     xpEl.value = "";
@@ -67,31 +67,88 @@ xpEl.addEventListener("keypress", function(event) {
 });
 
 function findDate(date){
-  let newDateEl = document.createElement("h3");
-  newDateEl.textContent = date;
-  historyEl.append(newDateEl);
+  let low = 0;
+  let high = dates.length - 1;
+  while (low <= high) {
+    const mid = Math.floor((low + high) / 2);
+    if (dates[mid] === date) {
+      return -1;
+    } else if (dates[mid] > date) {
+      low = mid + 1;
+    } else {
+      high = mid - 1;
+    }
+  }
+  return low;
 }
 
 function appendItemToHistory(itemValue){
   let itemId = itemValue[0]
   let itemName = itemValue[1]
   let arrItem = itemName.split('|');
-  xp += parseInt(arrItem[2]);
+  const activityDate = arrItem[0];
+  const activityName = arrItem[1];
+  const activityXP = arrItem[2];
+  xp += parseInt(activityXP);
   updateProgressBar();
-  findDate(arrItem[0])
-  let newEl = document.createElement("li")
-  newEl.textContent = `${arrItem[1]} | ${arrItem[2]}`
-  historyEl.append(newEl);
+  const index = findDate(activityDate);
+  if(index !== -1)
+    dates.splice(index, 0, activityDate)
+
+  const existingDateEl = document.querySelector(`#history-section h3[data-date='${activityDate}']`);
+  if (!existingDateEl) {
+    let newDateEl = document.createElement("h3");
+    newDateEl.setAttribute('data-date', activityDate);
+    newDateEl.textContent = activityDate;
+    historyEl.append(newDateEl);
+  } else {
+    // If an existing date element is found, move it to the correct position
+    const dateEls = document.querySelectorAll('#history-section h3');
+    for (let i = 0; i < dateEls.length; i++) {
+      if (dateEls[i] === existingDateEl) {
+        if (index < i) {
+          historyEl.insertBefore(existingDateEl, dateEls[index].previousElementSibling);
+        } else if (index > i) {
+          historyEl.insertBefore(existingDateEl, dateEls[index].nextElementSibling);
+        }
+        break;
+      }
+    }
+  }
+  const ulEl = existingDateEl ? existingDateEl.nextElementSibling : historyEl.lastElementChild;
+  if (ulEl) {
+    let newEl = document.createElement("li");
+    newEl.textContent = `${activityName} | XP: ${activityXP}`
+    ulEl.append(newEl);
+  //let newEl = document.createElement("li");
+  //newEl.textContent = `${activityName} | XP: ${activityXP}`
+  //ulEl.append(newEl);
+  //const ulEl = historyEl.children[index + 1].querySelector('ul');
+  //let newEl = document.createElement("li")
+  //let newDateEl = document.createElement("h3");
+  //newDateEl.textContent = activityDate;
+  //newEl.textContent = `${activityName} | XP: ${activityXP}`
+  //historyEl.append(newDateEl);
+  //historyEl.append(newEl);
+  //console.log(dates)
 
   newEl.addEventListener("dblclick", function(){
     let exactLocationOfStoryInDB = ref(database, `historyXP/${itemId}`)
     remove(exactLocationOfStoryInDB)
     location.reload();
   })
+  }
 }
 
 function clearList(){
   historyEl.innerHTML = "";
+  dates = [];
+  const dateEls = document.querySelectorAll('#history-section h3');
+  dateEls.forEach(el => el.remove());
+}
+
+function start(){
+
 }
 
 onValue(historyInDB, function(snapshot){
@@ -100,7 +157,8 @@ onValue(historyInDB, function(snapshot){
     clearList()
     for(let i = 0; i < items.length; i++){
         let currentItem = items[i]
-        appendItemToHistory(currentItem)
+        //document.addEventListener("DOMContentLoaded", function(){appendItemToHistory(currentItem)});
+        appendItemToHistory(currentItem);
     }
   }else{
     clearList()
