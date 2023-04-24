@@ -23,11 +23,32 @@ input{
     padding-top: 4px;
     padding-bottom: 4px;
     border-radius: 5px;
+    margin: 10px auto;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#activity-el{
+  width: 370px;
+}
+
+#xp-el{
+  width: 50px;
+}
+
+#date-el{
+  margin-top: 0;
+  width: 120px;
 }
 
 #log{
   border: 2px solid #3b981c;
   background-color: #42a91f;
-  padding: 2px 4px;
+  padding: 5px;
+  width: 150px;
   border-radius: 5px;
 }

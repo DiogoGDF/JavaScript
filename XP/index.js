@@ -11,6 +11,7 @@ const levelEl = document.getElementById("level-el");
 const activityEl = document.getElementById("activity-el");
 const xpEl = document.getElementById("xp-el");
 const historyEl = document.getElementById("history-el");
+const dateEl = document.getElementById("date-el");
 const log = document.getElementById("log");
 
 let lvl = 1;
@@ -30,13 +31,25 @@ function register(){
   const activityStr = activityEl.value;
   const xpStr = xpEl.value;
   if (activityStr !== "" && xpStr !== ""){
-    const currentDate = new Date();
-    const options = {day: '2-digit', month: '2-digit', year: '2-digit'};
-    const dateInFormat = currentDate.toLocaleString('en-GB', options);
-    const strDb = `${dateInFormat}|${activityStr}|${xpStr}`;
+    let day;
+    let month;
+    let year;
+    if(dateEl.value !== ""){
+      let dateArr = dateEl.value.split('-');
+      day = dateArr[2];
+      month = dateArr[1];
+      year = dateArr[0];
+    } else {
+      const currentDate = new Date();
+      day = currentDate.getDate().toString().padStart(2, '0');
+      month = currentDate.getMonth().toString().padStart(2, '0');
+      year = currentDate.getFullYear();
+    }
+    const activityDate = `${day}-${month}-${year}`
+    const strDb = `${activityDate}|${activityStr}|${xpStr}`;
     activityEl.value = "";
     xpEl.value = "";
-    push(historyInDB, strDb)
+    push(historyInDB, strDb);
   }
 }
 
