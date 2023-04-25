@@ -53,3 +53,10 @@ p{
     text-align: center;
     margin: 5px;
 }
+
+#new-game{
+    width: 100px;
+    background: #E11D48;
+    border-color: #111827;
+
+}
