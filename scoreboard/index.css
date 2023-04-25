@@ -6,6 +6,14 @@
 body {
     margin: 0;
     background: #1B244A;
+    text-align: center;
+}
+
+h3{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #EEEEEE;
+    font-size: 40px;
+    margin-bottom: 0;
 }
 
 .container {
@@ -22,18 +30,26 @@ body {
     color: #F94F6D;
     width: 160px;
     height: 120px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     font-size: 90px;
+    margin: 20px 0;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+p{
+    font-size: 90px;
+    line-height: 120px;
+    margin-bottom: 80px;
 }
 
 .addScr{
     background: #1B244A;
     color: #9AABD8;
     border: 2px solid #9AABD8;
-    height: 50px;
-    width: 50px;
-    border-radius: 3px;
+    height: 40px;
+    width: 40px;
+    border-radius: 5px;
     text-align: center;
+    margin: 5px;
 }
