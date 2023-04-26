@@ -18,3 +18,29 @@ function generatePass(){
     pass1El.textContent = pass1
     pass2El.textContent = pass2
 }
+
+function copyToClipboard(text){
+    const input = document.createElement("input");
+    input.setAttribute("value", text);
+    document.body.appendChild(input);
+    input.select();
+    document.execCommand("copy");
+    document.body.removeChild(input);
+
+    const notificationEl = document.getElementById("notification");
+    notificationEl.textContent = "Copied to clipboard!";
+    notificationEl.style.opacity = 1;
+    setTimeout(() => {
+        notificationEl.style.opacity = 0;
+    }, 1000);
+}
+
+
+pass1El.addEventListener("click", function(){
+    const text = pass1El.textContent
+    copyToClipboard(text)
+})
+pass2El.addEventListener("click", function(){
+    const text = pass2El.textContent
+    copyToClipboard(text)
+})

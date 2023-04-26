@@ -65,3 +65,16 @@ button{
     color: #55F991;
     padding: 4px 16px;
 }
+
+#notification {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #10B981;
+  color: white;
+  padding: 10px;
+  border-radius: 6px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
