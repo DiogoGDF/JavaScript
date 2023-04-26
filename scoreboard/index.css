@@ -56,9 +56,12 @@ p{
 
 #new-game{
     width: 100px;
+    height: 60px;
+    color: white;
     background: #E11D48;
     border-color: #111827;
-
+    font-size: larger;
+    text-shadow: 0 0 1px black;
 }
 
 .highlight {
