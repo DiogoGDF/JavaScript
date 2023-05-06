@@ -9,3 +9,13 @@ const app = initializeApp(appSettings)
 const database = getDatabase(app)
 const endorsmentsDB = ref(database, "endorsments")
 
+const btnEl = document.getElementById("btn-el")
+const inputEl = document.getElementById("input-el")
+const listEl = document.getElementById("endo-list")
+let input = ""
+
+btnEl.addEventListener("click", function(){
+    input = inputEl.value
+    push(endorsmentsDB, input)
+    listEl.innerHTML += `<li>${input}</li>`
+})
