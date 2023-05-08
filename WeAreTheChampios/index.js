@@ -14,8 +14,17 @@ const inputEl = document.getElementById("input-el")
 const listEl = document.getElementById("endo-list")
 let input = ""
 
+function clearInputField(){
+    inputEl.value = ""
+}
+
+function addToList(item){
+    listEl.innerHTML += `<li>${item}</li>`
+}
+
 btnEl.addEventListener("click", function(){
     input = inputEl.value
     push(endorsmentsDB, input)
-    listEl.innerHTML += `<li>${input}</li>`
+    clearInputField()
+    addToList(input)
 })
