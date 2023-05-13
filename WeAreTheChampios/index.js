@@ -18,13 +18,25 @@ function clearInputField(){
     inputEl.value = ""
 }
 
+function clearList(){
+    listEl.innerHTML = ""
+}
+
 function addToList(item){
     listEl.innerHTML += `<li>${item}</li>`
 }
+
+onValue(endorsmentsDB, function(snapshot){
+    let endorsementsArray = Object.values(snapshot.val())
+    clearList()
+    for (let i = 0; i < endorsementsArray.length; i++){
+        addToList(endorsementsArray[i])
+    }
+})
 
 btnEl.addEventListener("click", function(){
     input = inputEl.value
     push(endorsmentsDB, input)
     clearInputField()
-    addToList(input)
+    //addToList(input)
 })
