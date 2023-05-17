@@ -7,36 +7,42 @@ const appSettings = {
 
 const app = initializeApp(appSettings)
 const database = getDatabase(app)
-const endorsmentsDB = ref(database, "endorsments")
+const tasksDB = ref(database, "tasks")
 
 const btnEl = document.getElementById("btn-el")
 const inputEl = document.getElementById("input-el")
 const listEl = document.getElementById("endo-list")
 let input = ""
+let list = ``
 
 function clearInputField(){
     inputEl.value = ""
 }
 
 function clearList(){
-    listEl.innerHTML = ""
+    list = ``
 }
 
 function addToList(item){
-    listEl.innerHTML += `<li>${item}</li>`
+    list += `<li>${item}</li>`
 }
 
-onValue(endorsmentsDB, function(snapshot){
-    let endorsementsArray = Object.values(snapshot.val())
+onValue(tasksDB, function(snapshot){
+    let tasksArray = Object.entries(snapshot.val())
     clearList()
-    for (let i = 0; i < endorsementsArray.length; i++){
-        addToList(endorsementsArray[i])
+
+    for (let i = 0; i < tasksArray.length; i++){
+        let currentItem = tasksArray[i]
+        let currentItemID = currentItem[0]
+        let currentItemValue = currentItem[1]
+        addToList(currentItemValue)
     }
+    listEl.innerHTML = list
 })
 
 btnEl.addEventListener("click", function(){
     input = inputEl.value
-    push(endorsmentsDB, input)
+    push(tasksDB, input)
     clearInputField()
     //addToList(input)
 })

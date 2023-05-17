@@ -68,6 +68,10 @@ h3{
 }
 
 ul{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+
     margin-top: 0;
     padding: 0;
 
@@ -78,12 +82,13 @@ ul li{
     background-color: #373B41;
     color: #ebdbb2;
 
-    margin-bottom: 13px;
+    /*margin-bottom: 13px;*/
     border: none;
-    padding: 15px;
+    padding: 12px;
     border-radius: 5px;
+    flex-grow: 1;
 
-    text-align: start;
+    text-align: center;
     font-size: 12px;
     font-weight: 200;
     font-family: 'Inter', sans-serif;
