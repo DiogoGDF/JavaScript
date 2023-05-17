@@ -2,8 +2,8 @@ html, body {
     margin: 0;
     padding: 0;
 
-    background: #1B1924;
-    color: white;
+    background: #282828;
+    color: #ebdbb2;
 
     font-family: 'Josefin Sans', sans-serif;
     user-select: none;
@@ -18,9 +18,9 @@ html, body {
     max-width: 320px;
 }
 
-img{
-    margin: 15px auto 0 auto;
-    width: 100px;
+#icon{
+    font-size: 50px;
+    margin: 0 auto;
 }
 
 h1{
@@ -30,10 +30,10 @@ h1{
 
 input {
     margin: 10px 0;
-    padding: 10px 15px 93px 15px;
+    padding: 15px;
 
-    color: whitesmoke;
-    background-color: #444059;
+    color: #ebdbb2;
+    background-color: #373B41;
 
     border: none;
     border-radius: 8px;
@@ -41,14 +41,15 @@ input {
     font-size: 20px;
     font-family: 'Inter', sans-serif;
     font-size: 15px;
+    text-align: center;
 }
 input::placeholder{
     color: #8F8F8F;
 }
 
 button {
-    background: #28A9F1;
-    color: #04131C;
+    background: #689d6a;
+    color: #32302f;
 
     font-family: 'Josefin Sans', sans-serif;
     text-align: center;
@@ -56,7 +57,7 @@ button {
     font-weight: 700;
 
     margin: 3px 0;
-    padding: 17px;
+    padding: 12px;
     border: none;
     border-radius: 8px;
 }
@@ -74,8 +75,8 @@ ul{
 }
 
 ul li{
-    background-color: white;
-    color: #1B1924;
+    background-color: #373B41;
+    color: #ebdbb2;
 
     margin-bottom: 13px;
     border: none;
