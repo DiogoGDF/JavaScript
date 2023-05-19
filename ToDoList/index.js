@@ -13,7 +13,6 @@ const btnEl = document.getElementById("btn-el")
 const inputEl = document.getElementById("input-el")
 const listEl = document.getElementById("endo-list")
 let input = ""
-let list = ``
 
 function clearInputField(){
     inputEl.value = ""
@@ -29,12 +28,10 @@ function addToList(item){
     let newEl = document.createElement("li")
     newEl.textContent = itemValue
     newEl.addEventListener("dblclick", function(){
-        let locationInDB = ref(database, `tasks/${item[0]}`)
+        let locationInDB = ref(database, `tasks/${itemID}`)
         remove(locationInDB)
-        //clearList()
     })
     listEl.append(newEl)
-    //list += `<li>${itemValue}</li>`
 }
 
 onValue(tasksDB, function(snapshot){
@@ -45,7 +42,6 @@ onValue(tasksDB, function(snapshot){
         let currentItem = tasksArray[i]
         addToList(currentItem)
     }
-    //listEl.innerHTML = list
 })
 
 btnEl.addEventListener("click", function(){
