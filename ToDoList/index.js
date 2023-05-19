@@ -13,14 +13,14 @@ const btnEl = document.getElementById("btn-el")
 const inputEl = document.getElementById("input-el")
 const listEl = document.getElementById("endo-list")
 let input = ""
-//let list = ``
+let list = ``
 
 function clearInputField(){
     inputEl.value = ""
 }
 
 function clearList(){
-    list = ``
+    listEl.innerHTML = ``
 }
 
 function addToList(item){
@@ -28,8 +28,13 @@ function addToList(item){
     let itemValue = item[1]
     let newEl = document.createElement("li")
     newEl.textContent = itemValue
+    newEl.addEventListener("dblclick", function(){
+        let locationInDB = ref(database, `tasks/${item[0]}`)
+        remove(locationInDB)
+        //clearList()
+    })
     listEl.append(newEl)
-    //list += `<li>${item}</li>`
+    //list += `<li>${itemValue}</li>`
 }
 
 onValue(tasksDB, function(snapshot){
