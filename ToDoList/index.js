@@ -13,7 +13,7 @@ const btnEl = document.getElementById("btn-el")
 const inputEl = document.getElementById("input-el")
 const listEl = document.getElementById("endo-list")
 let input = ""
-let list = ``
+//let list = ``
 
 function clearInputField(){
     inputEl.value = ""
@@ -24,7 +24,12 @@ function clearList(){
 }
 
 function addToList(item){
-    list += `<li>${item}</li>`
+    let itemID = item[0]
+    let itemValue = item[1]
+    let newEl = document.createElement("li")
+    newEl.textContent = itemValue
+    listEl.append(newEl)
+    //list += `<li>${item}</li>`
 }
 
 onValue(tasksDB, function(snapshot){
@@ -33,16 +38,13 @@ onValue(tasksDB, function(snapshot){
 
     for (let i = 0; i < tasksArray.length; i++){
         let currentItem = tasksArray[i]
-        let currentItemID = currentItem[0]
-        let currentItemValue = currentItem[1]
-        addToList(currentItemValue)
+        addToList(currentItem)
     }
-    listEl.innerHTML = list
+    //listEl.innerHTML = list
 })
 
 btnEl.addEventListener("click", function(){
     input = inputEl.value
     push(tasksDB, input)
     clearInputField()
-    //addToList(input)
 })
