@@ -35,12 +35,14 @@ function addToList(item){
 }
 
 onValue(tasksDB, function(snapshot){
-    let tasksArray = Object.entries(snapshot.val())
-    clearList()
+    if (snapshot.exists()){
+        let tasksArray = Object.entries(snapshot.val())
+        clearList()
 
-    for (let i = 0; i < tasksArray.length; i++){
-        let currentItem = tasksArray[i]
-        addToList(currentItem)
+        for (let i = 0; i < tasksArray.length; i++){
+            let currentItem = tasksArray[i]
+            addToList(currentItem)
+        }
     }
 })
 
