@@ -124,4 +124,27 @@ const numeroRomano = "XIV";
 const numeroDecimal = converterNumerosRomanos(numeroRomano);
 console.log(numeroDecimal); // Saída: 14
 
-//
+// Exercício 6 => somar N números fibonacci
+function fibonacci(n){
+    let soma = 0;
+
+    if (n === 1) {
+        soma = 0;
+    } else if (n === 2) {
+        soma = 1;
+    } else {
+        let primeiro = 0;
+        let segundo = 1;
+        soma = primeiro + segundo;
+
+        for (let i = 3; i <= n; i++) {
+            const proximo = primeiro + segundo;
+            soma += proximo;
+            primeiro = segundo;
+            segundo = proximo;
+        }
+    }
+    console.log(soma);
+}
+
+fibonacci(8)
