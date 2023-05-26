@@ -43,6 +43,8 @@ onValue(tasksDB, function(snapshot){
             let currentItem = tasksArray[i]
             addToList(currentItem)
         }
+    } else {
+        listEl.innerHTML = "No tasks left . . ."
     }
 })
 
