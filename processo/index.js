@@ -33,5 +33,60 @@ const s1 = "abcde";
 const s2 = "ace";
 
 const longest_value = longest_subsequence(s1, s2);
-console.log(longest_value);  // Output: 3
+console.log(longest_value);
+
+// Exercício 3 => Encontrar se é possível somar três números de um vetor para resultar um número k
+function temSomaTripla(array, k) {
+  array.sort((a, b) => a - b);
+
+  for (let i = 0; i < array.length - 2; i++) {
+    let esquerda = i + 1;
+    let direita = array.length - 1;
+
+    while (esquerda < direita) {
+      const soma = array[i] + array[esquerda] + array[direita];
+
+      if (soma === k) {
+        return 1; 
+      } else if (soma < k) {
+        esquerda++;
+      } else {
+        direita--;
+      }
+    }
+  }
+
+  return 0; 
+}
+
+const array = [1, 4, 2, 7, 3, 9, 6];
+const k = 14;
+const temSoma = temSomaTripla(array, k);
+console.log(temSoma); 
+
+// Exercício 4 => Encontrar o mínimo múltiplo comum de dois números
+function calcularMMC(a, b) {
+
+  function calcularMDC(x, mdc) {
+      while (x !== 0){
+          const temp = x;
+          x = mdc % x;
+          mdc = temp;
+      }
+      return mdc;
+  }
+
+  // Calcular o MMC usando a propriedade MMC = (a * b) / MDC(a, b)
+  const mdc = calcularMDC(a, b);
+  const mmc = (a * b) / mdc;
+
+  return mmc;
+}
+
+// Exemplo de uso
+const numero1 = 12;
+const numero2 = 18;
+
+const mmc = calcularMMC(numero1, numero2);
+console.log(mmc); // Output: 36
 
