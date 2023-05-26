@@ -90,3 +90,37 @@ const numero2 = 18;
 const mmc = calcularMMC(numero1, numero2);
 console.log(mmc); // Output: 36
 
+// Exercício 5 => Conversor de Número Romano
+function converterNumerosRomanos(numeroRomano) {
+  const romanos = {
+    I: 1,
+    V: 5,
+    X: 10,
+    L: 50,
+    C: 100,
+    D: 500,
+    M: 1000
+  };
+
+  let numeroDecimal = 0;
+
+  for (let i = 0; i < numeroRomano.length; i++) {
+    const atual = romanos[numeroRomano[i]];
+    const prox = romanos[numeroRomano[i + 1]];
+
+    if (prox && prox > atual) {
+      numeroDecimal += prox - atual;
+      i++;
+    } else {
+      numeroDecimal += atual;
+    }
+  }
+
+  return numeroDecimal;
+}
+
+// Exemplo de uso
+const numeroRomano = "XIV";
+const numeroDecimal = converterNumerosRomanos(numeroRomano);
+console.log(numeroDecimal); // Saída: 14
+
