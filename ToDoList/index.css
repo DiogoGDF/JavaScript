@@ -2,8 +2,8 @@ html, body {
     margin: 0;
     padding: 0;
 
-    background: #282828;
-    color: #ebdbb2;
+    background: #282c34;
+    color: #dedede;
 
     font-family: 'Josefin Sans', sans-serif;
     user-select: none;
@@ -32,8 +32,8 @@ input {
     margin: 10px 0;
     padding: 15px;
 
-    color: #ebdbb2;
-    background-color: #373B41;
+    color: #dedede;
+    background-color: #434c5e;
 
     border: none;
     border-radius: 8px;
@@ -44,7 +44,7 @@ input {
     text-align: center;
 }
 input::placeholder{
-    color: #8F8F8F;
+    color: #9cacbc;
 }
 
 button {
@@ -79,8 +79,8 @@ ul{
 }
 
 ul li{
-    background-color: #373B41;
-    color: #ebdbb2;
+    background-color: #434c5e;
+    color: #dedede;
 
     /*margin-bottom: 13px;*/
     border: none;
