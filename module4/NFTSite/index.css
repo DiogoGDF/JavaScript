@@ -26,29 +26,37 @@ a {
     color: #ef5839;
     text-decoration-style: dotted;
 } 
-a:hover {
-    color: #d4b44c;
-}
-a:active {
+a:hover,a:active {
     color: #d4b44c;
 }
 
 /* layout */
-header {
-    background: #5f29a3;
+header, section, footer {
     padding: 45px 0;
 }
-section {
-    padding: 45px 0;
+header {
+    background: #5f29a3;
+}
+footer {
+    text-align: center;
+    color: #5f29a3;
+}
+.second-section {
+    color: whitesmoke;
+    background: #5f29a3;
 }
 .container {
     width: 620px;
     margin: 0 auto;
 }
+.section-two-image-container {
+    display: flex;
+    justify-content: space-between;
+}
 .main-image {
     width: 100%;
 }
-#second-section {
-    color: whitesmoke;
-    background: #5f29a3;
+.feature-image {
+    width: 300px;
+    border-radius: 4.6px;
 }
