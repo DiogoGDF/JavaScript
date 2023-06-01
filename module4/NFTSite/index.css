@@ -7,10 +7,12 @@ body {
 }
 
 /* typography */
+h1, h3{
+    margin: 0;
+}
 h1 {
     color: whitesmoke;
     font-size: 36px;
-    margin: 0;
 }
 h2 {
     margin-top: 0;
@@ -18,7 +20,6 @@ h2 {
 h3 {
     color: #d0aaff;
     font-size: 20px;
-    margin: 0;
 }
 
 /* links */
@@ -34,7 +35,7 @@ a:hover,a:active {
 header, section, footer {
     padding: 45px 0;
 }
-header {
+header, .second-section {
     background: #5f29a3;
 }
 footer {
@@ -43,7 +44,6 @@ footer {
 }
 .second-section {
     color: whitesmoke;
-    background: #5f29a3;
 }
 .container {
     width: 620px;
