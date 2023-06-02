@@ -48,6 +48,7 @@ footer {
 .container {
     width: 620px;
     margin: 0 auto;
+    line-height: 23px;
 }
 .section-two-image-container {
     display: flex;
