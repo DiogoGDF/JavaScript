@@ -30,3 +30,25 @@ h3 {
 h1, h2 {
     font-weight: 300;
 }
+
+h1 span {
+    font-size: 80px;
+}
+
+h2 span {
+    font-size: 60px;
+}
+
+h1 span, h2 span {
+    display: block;
+    font-weight: 900;
+}
+
+a {
+    color: #99D930;
+    font-weight: 900;
+} 
+
+a:hover , a:focus{
+    color: #131313;
+}
