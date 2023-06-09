@@ -72,3 +72,16 @@ a {
 a:hover , a:focus{
     color: #131313;
 }
+
+.btn {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 10px 25px;
+    background-color: #99D930;
+    color: #252525;
+    text-decoration: none;
+}
+.btn:hover, .btn:focus {
+    background-color: #252525;
+    color: #fff;
+}
