@@ -1,3 +1,4 @@
+/* structure */
 body {
     text-align: center;
     font-family: 'Roboto', sans-serif;
@@ -32,13 +33,20 @@ h2 {
 h3 {
     font-size: 36px;
     font-weight: 900;
+    margin-bottom: 0;
 }
 
 .small {
     font-size: 16px;
+    margin-top: 5px;
+}
+
+p {
+    margin-bottom: 0;
 }
 
 h1, h2 {
+    margin-top: 0;
     font-weight: 300;
 }
 
@@ -55,6 +63,7 @@ h1 span, h2 span {
     font-weight: 900;
 }
 
+/* Links */
 a {
     color: #99D930;
     font-weight: 900;
