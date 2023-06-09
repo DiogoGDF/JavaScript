@@ -11,14 +11,9 @@ body {
     margin: 0 auto;
 }
 
-header {
-    background: #d7d7d7;
-}
-.about-me {
-    background: #ffeaea;
-}
-.articles {
-    background: #eaf9ff;
+.inverse{
+    background: #252525;
+    color: #fff;
 }
 
 header, .about-me, .articles {
