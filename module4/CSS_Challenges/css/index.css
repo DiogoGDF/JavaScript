@@ -27,11 +27,11 @@ h1 {
 }
 
 h2 {
-    padding: 20px 0;
     border-top: 1px solid #c4c4c4;
     border-bottom: 1px solid #c4c4c4;
     font-size: 42px;
     margin-bottom: 20px;
+    padding: 20px 0;
 }
 
 h3 {
@@ -62,13 +62,14 @@ h2 span {
     font-size: 60px;
 }
 
-h1 span, h2 span {
+.accent-text {
     display: block;
     font-weight: 900;
+    color: #99D930;
 }
 
 /* Links */
-a {
+a, .name, time {
     color: #99D930;
     font-weight: 900;
 } 
@@ -88,4 +89,9 @@ a:hover , a:focus{
 .btn:hover, .btn:focus {
     background-color: #252525;
     color: #fff;
+}
+
+.articles .btn:hover,.articles .btn:focus {
+    background: #fff;
+    color: #252525;
 }
