@@ -3,3 +3,9 @@ html, body {
     padding: 0;
 }
 
+header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: solid 1px #c6c6c6;
+    padding: 20px;
+}
