@@ -41,6 +41,11 @@ header {
     margin: 0 10px;
 }
 
+.actions:hover {
+    background: #c6c6c6;
+    cursor: pointer;
+}
+
 /* text */
 .name, .location {
     margin: auto 10px;
