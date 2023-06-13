@@ -1,22 +1,28 @@
 <html>
-    <head><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+    <head>
         <link rel="stylesheet" href="index.css">
     </head>
     <body>
+
         <header>
-            <img id="logo" src="images/logo.png">
-            <img id="my-avatar" src="images/avatar-courbet.jpg">
+            <img class="logo" src="images/logo.png">
+            <img class="user-avatar" src="images/avatar-courbet.jpg">
         </header>
+
         <section class="posts">
-            <img id="post-avatar" src="images/avatar-ducreux.jpg">
-            <p id="post-header">Joseph Ducreux Paris, France</p>
-            <img id="post-img" src="images/post-ducreux.jpg">
-            <br>
-            <img src="images/icon-heart.png">
-            <img src="images/icon-comment.png">
-            <img src="images/icon-dm.png">
-            <p>152 likes</p>
-            <p>jd1735 gm friends! which coin are YOU stacking up today?? post below and WAGMI!</p>
+            <div class="post-header">
+                <img class="post-avatar" src="images/avatar-ducreux.jpg">
+                <div>               
+                    <div class="name bold">Joseph Ducreux</div>
+                    <div class="location">Paris France</div>
+                </div>
+            </div>
+            <img class="post-img" src="images/post-ducreux.jpg">
+            <img class="actions" src="images/icon-heart.png">
+            <img class="actions" src="images/icon-comment.png">
+            <img class="actions" src="images/icon-dm.png">
+            <div class="bold text">15,137 likes</div>
+            <div class="text"><span class="bold">jd1735</span> gm friends! which coin are YOU stacking up today?? post below and WAGMI!</div>
         </section>
         <script src="index.js"></script>
     </body>

@@ -1,3 +1,4 @@
+/* Structure */
 html, body {
     margin: 0;
     padding: 0;
@@ -6,6 +7,49 @@ html, body {
 header {
     display: flex;
     justify-content: space-between;
-    border-bottom: solid 1px #c6c6c6;
-    padding: 20px;
+    border-bottom: solid 2px #c6c6c6;
+    padding: 10px 20px;
+}
+
+.post-header {
+    display: flex;
+    justify-content: start;
+    margin: 15px;
+}
+
+/* images */
+.logo {
+    width: 200px;
+    height: 80px;
+    margin: auto 0;
+}
+
+.user-avatar, .post-avatar {
+    width:50px;
+    height: 50px;
+    margin: auto 0;
+    border-radius: 100%;
+}
+
+.post-img {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.actions {
+    width: 40px;
+    margin: 0 10px;
+}
+
+/* text */
+.name, .location {
+    margin: auto 10px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.text {
+    margin: 12px;
 }
