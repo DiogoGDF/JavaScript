@@ -28,6 +28,10 @@ li {
     width: 25px;
 }
 
+.align-right {
+    margin-left: auto;
+}
+
 h1 {
     font-size: 40px;
     font-weight: 400;
@@ -36,8 +40,35 @@ h1 {
 
 .caption {
     margin: 0 25px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.item {
+    position: relative;
 }
 
 .item-img {
     width: 100%;
+    display: block;
+}
+
+.img-banner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #cd6858;
+    color: whitesmoke;
+    padding: 10px;
+}
+
+button {
+    border: none;
+    background: #cd6858;
+    color: whitesmoke;
+    padding: 10px 15px;
+    font-weight: 700;
+    cursor: pointer;
+    margin: auto;
 }
