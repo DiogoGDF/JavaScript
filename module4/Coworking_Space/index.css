@@ -13,15 +13,19 @@ header {
 }
 
 ul {
-    margin: 0;
     display: flex;
+    gap: 10px;
+    margin: 0;
     padding: 25px;
-    list-style: none;
+    list-style-type: none;
+}
+
+li {
+    cursor: pointer;
 }
 
 .icon {
     width: 25px;
-    margin-left: 5px;
 }
 
 h1 {
