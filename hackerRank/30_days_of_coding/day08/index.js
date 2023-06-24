@@ -8,12 +8,11 @@ function processData(input) {
         let line = str[i++].split(" ")
         hashMap.set(line[0], line[1])
     }
-    for (let j = 0; j < n; j++) {
+    for (i; i < str.length; i++) {
         if (hashMap.has(str[i]))
             console.log(`${str[i]}=${hashMap.get(str[i])}`)
         else
             console.log("Not found")
-        i++
     }
 } 
 
