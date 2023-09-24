@@ -1,2 +1,4 @@
 nlw/nlwia/node_modules/
 .DS_Store
+node_do_zero/package-lock.json
+node_do_zero/node_modules/
