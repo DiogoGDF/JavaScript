@@ -31,16 +31,24 @@ server.get('/node', () => {
 })
 
 // POST http://localhost:3333/videos => para criar um vídeo
-server.post('/videos', () => {
+server.post('/videos', (request, reply) => {
+  const { title, description, duration } = request.body
+
   database.create({
-    title: 'Video 01',
-    description: 'Esse é o video 01',
-    duration: 180,
+    title,
+    description,
+    duration,
   })
-  console.log(database.list())
+
+  // Status retorna ao solicitante o status do pedido, se deu certo -> success, se deu errado um erro, ...
+  // Mais do que isso, ele também retorna qual o tipo de sucesso, e qual o tipo de erro
+  // status 201 significa que algo foi criado
+  return reply.status(201).send()
 })
 server.get('/videos', () => {
-  return ''
+  const videos = database.list()
+
+  return videos
 })
 // Rota para atualizar um video
 server.put('/videos/:id', () => {
