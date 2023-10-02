@@ -67,10 +67,10 @@ main{
 .modal {
     display: none;
     position: fixed;
+    right: 0;
+    left: 0;
     top: 0;
     bottom: 0;
-    left: 0;
-    right: 0;
     margin: auto;
     height: 420px;
     width: 350px;
@@ -128,6 +128,10 @@ main{
     cursor: pointer;
 }
 
+.modal-btns-reverse{
+    flex-direction: row-reverse;
+}
+
 /* modal input */
 
 input{
@@ -153,4 +157,14 @@ input{
     height: 140px;
     line-height: 23px;
     margin-bottom: 0;
+}
+
+.idiot-gif{
+    width: 95%;
+    margin: 0 auto;
+}
+
+.idiot-gif img{
+    box-shadow: 1px 1px 3px #999;
+    border-radius: 5px;
 }
