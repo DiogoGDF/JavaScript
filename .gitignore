@@ -1,5 +1,4 @@
 .DS_Store
-rocketseat/node_do_zero/package-lock.json
 rocketseat/node_do_zero/node_modules/
 rocketseat/nlw/nlwia/node_modules
-rocketseat/nlw/nlwia/package-lock.json
+rocketseat/api/node_modules/

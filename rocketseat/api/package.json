@@ -1,12 +1,15 @@
 {
   "name": "api",
   "version": "1.0.0",
-  "description": "",
+  "description": "API desenvolvida no programa Explorer",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./src/server.js"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "author": "Diogo Garbinato de Fagundes",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }
