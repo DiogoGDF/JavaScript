@@ -23,6 +23,17 @@ app.get("/users", (request, response) => {
     response.send(`Página: ${page}. Mostrar: ${limit}`)
 })
 
+//para poder receber do post o formato json:
+app.use(express.json())
+//Para usar o método post é necessário utilizar uma ferramenta como o insomnia, que permite enviar dados junto com o request
+app.post("/users", (request, response) => {
+    const { name, email, password } = request.body
+
+    //response.send("Você chamou o pai 😎")
+    //response.send(`Usuário: ${name}, e-mail: ${email}, senha: *******`)
+    response.json({ name, email, password })
+})
+
 // Porta a ser usada pelo express
 const PORT = 3333;
 
