@@ -1,3 +1,4 @@
+//const Router = require("express")
 const { Router } = require("express")
 
 const usersRoutes = Router()
@@ -17,6 +18,8 @@ usersRoutes.get("/message/:id/:user", (request, response) => {
 
 //o query é como os :id, mas sem ser obrigatório, e não precisa ser especificado como parametro ("/users/:page/:limit")
 usersRoutes.get("/", (request, response) => {
+    //const page = request.query.page
+    //const limit = request.query.limit
     const { page, limit } = request.query
 
     response.send(`Página: ${page}. Mostrar: ${limit}`)
