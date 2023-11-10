@@ -4,9 +4,23 @@ const UsersController = require('../controllers/UsersController')
 
 const usersRoutes = Router()
 
+//next => destino da requisição
+function myMiddleware(request, response, next){
+    if(!request.body.isAdmin){
+        console.log("Pare ✋, impostor 😡!")
+        return response.json({ message: "user unauthorized" })
+    }
+    console.log("Siga em frente meu rei! 👑🗿")
+    next()
+}
+
 const usersController = new UsersController()
 
-usersRoutes.post('/', usersController.create)
+//Middleware para todas as rotas 👇
+//userRoutes.use(myMiddleware)
+
+//Middleware para uma rota específica 👇
+usersRoutes.post('/', myMiddleware, usersController.create)
 
 
 
