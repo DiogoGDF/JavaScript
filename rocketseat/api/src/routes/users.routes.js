@@ -1,7 +1,34 @@
 //const Router = require("express")
 const { Router } = require("express")
+const UsersController = require('../controllers/UsersController')
 
 const usersRoutes = Router()
+
+const usersController = new UsersController()
+
+usersRoutes.post('/', usersController.create)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // get => uma requisição | quando alguém entrar na URL /, aquela será a resposta:
 usersRoutes.get("/hello", (request, response) => {
@@ -26,11 +53,10 @@ usersRoutes.get("/", (request, response) => {
 })
 
 //Para usar o método post é necessário utilizar uma ferramenta como o insomnia, que permite enviar dados junto com o request
-usersRoutes.post("/", (request, response) => {
-    const { name, email, password } = request.body
-
+usersRoutes.post("/old", (request, response) => {
     //response.send("Você chamou o pai 😎")
     //response.send(`Usuário: ${name}, e-mail: ${email}, senha: *******`)
+    const { name, email, password } = request.body
     response.json({ name, email, password })
 })
 
