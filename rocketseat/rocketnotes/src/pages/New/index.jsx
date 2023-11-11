@@ -1,4 +1,4 @@
-//import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import { Textarea } from '../../components/Textarea'
 import { NoteItem } from '../../components/NoteItem'
@@ -18,6 +18,7 @@ export function New() {
         <Form>
           <header>
             <h1>Criar nota</h1>
+            <Link to="/">voltar</Link>
           </header>
 
           <Input placeholder="Título" />
@@ -41,4 +42,3 @@ export function New() {
     </Container>
   )
 }
-            //<Link to="/">voltar</Link>
