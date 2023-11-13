@@ -6,11 +6,11 @@ const usersRoutes = Router()
 
 //next => destino da requisição
 function myMiddleware(request, response, next){
-    if(!request.body.isAdmin){
-        console.log("Pare ✋, impostor 😡!")
-        return response.json({ message: "user unauthorized" })
-    }
-    console.log("Siga em frente meu rei! 👑🗿")
+    // if(!request.body.isAdmin){
+    //     console.log("Pare ✋, impostor 😡!")
+    //     return response.json({ message: "user unauthorized" })
+    // }
+    // console.log("Siga em frente meu rei! 👑🗿")
     next()
 }
 
