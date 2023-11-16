@@ -3,12 +3,14 @@ const migrationsRun = require('./database/sqlite/migrations')
 const AppError = require('./utils/AppError')
 const express = require('express')
 const routes = require("./routes")
+const cors = require('cors')
 
 //executar o banco de dados: 
 migrationsRun()
 
 // express precisa ser inicializado
 const app = express()
+app.use(cors())
 //para poder receber do post o formato json:
 app.use(express.json())
 
