@@ -18,10 +18,8 @@ export function SignUp() {
 
   function handleSignUp(){
     if (!name || !email || !password){
-      return alert("PREENCHA TODOS OS CAMPOS FDP")
-    } else {
-      console.log(name + email + password)
-    }
+      return alert("Preencha todos os campos!")
+    }     
     api.post('/users', { name, email, password })
     .then(() => {
       alert('Usuário cadastrado com sucesso!')
@@ -69,6 +67,7 @@ export function SignUp() {
 
         <Button 
           title="Cadastrar" 
+          type="button"
           onClick={handleSignUp}
         />
 
