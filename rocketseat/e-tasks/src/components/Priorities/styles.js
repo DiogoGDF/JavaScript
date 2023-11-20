@@ -23,7 +23,7 @@ export const Header = styled.header`
 `;
 
 export const Tasks = styled.div`
-  border: 1px dashed  ${({ theme }) => theme.COLORS.RED_200};
+  border: 1px solid  ${({ theme }) => theme.COLORS.RED_200};
   min-height: 154px;
   border-radius: 7px;
   margin-top: 16px;
