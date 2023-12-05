@@ -1,11 +1,15 @@
 import { Container, Profile, Logout } from "./styles";
+import { api } from '../../services/api'
 import { useAuth } from "../../hooks/auth";
 import { RiShutDownLine } from 'react-icons/ri'
 import { useNavigate } from "react-router-dom";
+import avatarPlaceholder from '../../assets/avatar_placeholder.svg'
 
 export function Header(){
-    const { signOut } = useAuth()
+    const { signOut, user } = useAuth()
     const navigate = useNavigate()
+
+    const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder
 
     function handleSignOut(){
         navigate('/')
@@ -16,12 +20,12 @@ export function Header(){
         <Container>
             <Profile to="/profile">
                 <img 
-                    src="https://github.com/DiogoGDF.png"
-                    alt="Foto do usuário"
+                    src={avatarUrl}
+                    alt={user.name}
                 />
                 <div>
                     <span>Bem-vindo</span>
-                    <strong>Diogo Garbinato</strong>
+                    <strong>{user.name}</strong>
                 </div>
             </Profile>
             <Logout onClick={handleSignOut}>
