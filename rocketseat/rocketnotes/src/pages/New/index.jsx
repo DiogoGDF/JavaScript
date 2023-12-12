@@ -17,7 +17,12 @@ export function New() {
     const [newTag, setNewTag] = useState("");
 
     function handleAddLink(){
-        setLinks(prevState => [...prevState, newLink]);
+        setLinks(prevState => {
+            if (!prevState.includes(newLink.trim())) {
+                return [...prevState, newLink.trim()];
+            }
+            return prevState;
+        })
         setNewLink("");
     }
 
@@ -26,7 +31,12 @@ export function New() {
     }
 
     function handleAddTag(){
-        setTags(prevState => [...prevState, newTag]);
+        setTags(prevState => {
+            if (!prevState.includes(newTag.trim())) {
+                return [...prevState, newTag.trim()];
+            }
+            return prevState;
+        })
         setNewTag("");
     }
 
