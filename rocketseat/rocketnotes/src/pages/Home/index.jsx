@@ -6,8 +6,19 @@ import { ButtonText } from "../../components/ButtonText";
 import { Input } from "../../components/Input";
 import { Section } from "../../components/Section";
 import { Note } from "../../components/Note";
+import { useEffect, useState } from "react";
+import { api } from "../../services/api";
 
 export function Home() {
+    const [tags, setTags] = useState([])
+
+    useEffect(() => {
+        async function fetchTags(){
+            const response = await api.get("/tags");
+            setTags(response.data);
+        }
+        fetchTags()
+    },[])
   return (
     <Container>
       <Brand>
@@ -20,12 +31,15 @@ export function Home() {
         <li>
           <ButtonText title="Todos" $isactive />
         </li>
-        <li>
-          <ButtonText title="React" />
-        </li>
-        <li>
-          <ButtonText title="Nodejs" />
-        </li>
+        {
+            tags && tags.map(tag => (
+                <li key={String(tag.id)}>
+                    <ButtonText
+                        title={tag.name}
+                    />
+                </li>
+            ))
+        }
       </Menu>
 
       <Search>
