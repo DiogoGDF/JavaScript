@@ -1,4 +1,6 @@
-.DS_Store
+*.DS_Store
+*node_modules/
+*.vscode/
 rocketseat/node_do_zero/node_modules/
 rocketseat/nlw/nlwia/node_modules
 rocketseat/api/node_modules/
