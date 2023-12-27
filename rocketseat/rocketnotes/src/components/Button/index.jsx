@@ -1,5 +1,5 @@
 import { Container } from "./styles";
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types";
 
 export function Button({ title, loading = false, ...rest }){
     return(
@@ -8,12 +8,12 @@ export function Button({ title, loading = false, ...rest }){
             disabled={loading}
             {...rest}
         >
-            { loading ? 'Carregando...' : title}
+            { loading ? "Carregando..." : title}
         </Container>
-    )
+    );
 }
 
 Button.propTypes = {
     title: PropTypes.string.isRequired,
     loading: PropTypes.bool
-}
+};

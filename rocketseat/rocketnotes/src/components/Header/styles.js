@@ -1,6 +1,5 @@
-import styled from 'styled-components'
-import { Link } from 'react-router-dom'
-
+import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 // grid-area: Para o cabeçario ficar fixo
 export const Container = styled.header`
@@ -16,7 +15,7 @@ export const Container = styled.header`
     display: flex;
     justify-content: space-between;
     padding: 0 80px;
-`
+`;
 
 export const Profile = styled(Link)`
     display: flex;
@@ -44,7 +43,7 @@ export const Profile = styled(Link)`
         font-size: 18px;
         color: ${({ theme }) => theme.COLORS.WHITE}
     }
-`
+`;
 
 export const Logout = styled.button`
     border: none;
@@ -54,4 +53,4 @@ export const Logout = styled.button`
         color: ${({ theme }) => theme.COLORS.GRAY_100};
         font-size: 36px;
     }
-`
+`;

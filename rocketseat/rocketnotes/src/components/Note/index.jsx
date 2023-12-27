@@ -1,10 +1,10 @@
-import { Container } from './styles'
-import { Tag } from '../Tag'
-import PropTypes from 'prop-types'
+import { Container } from "./styles";
+import { Tag } from "../Tag";
+import PropTypes from "prop-types";
 
 Note.propTypes = {
     data: PropTypes.isRequired,
-}
+};
 
 export function Note({ data, ...rest }) {
   return (
@@ -20,5 +20,5 @@ export function Note({ data, ...rest }) {
         </footer>
       }
     </Container>
-  )
+  );
 }

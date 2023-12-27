@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const Container = styled.button`
   background: none;
@@ -6,4 +6,4 @@ export const Container = styled.button`
 
   border: none;
   font-size: 16px;
-`
+`;

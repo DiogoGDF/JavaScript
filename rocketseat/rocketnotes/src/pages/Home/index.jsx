@@ -23,7 +23,7 @@ export function Home() {
         const alreadySelected = selectedTags.includes(tagName);
         if (alreadySelected){
             const filteredTags = selectedTags.filter(tag => tag !== tagName);
-            setSelectedTags(filteredTags)
+            setSelectedTags(filteredTags);
         } else {
             setSelectedTags(prevState => [...prevState, tagName]);
         }

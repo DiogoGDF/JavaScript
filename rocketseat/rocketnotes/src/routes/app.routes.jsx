@@ -1,9 +1,9 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route } from "react-router-dom";
 
-import { New } from '../pages/New'
-import { Home } from '../pages/Home'
-import { Profile } from '../pages/Profile'
-import { Details } from '../pages/Details'
+import { New } from "../pages/New";
+import { Home } from "../pages/Home";
+import { Profile } from "../pages/Profile";
+import { Details } from "../pages/Details";
 
 export function AppRoutes(){
     return (
@@ -14,5 +14,5 @@ export function AppRoutes(){
 
             <Route path="/" element={<Home />} />
         </Routes>
-    )
+    );
 }

@@ -1,80 +1,80 @@
-import { createContext, useContext, useState, useEffect } from 'react'
-import { api } from '../services/api'
+import { createContext, useContext, useState, useEffect } from "react";
+import { api } from "../services/api";
 
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types";
 AuthProvider.propTypes = {
     children: PropTypes.children
-}
+};
 
-export const AuthContext = createContext({})
+export const AuthContext = createContext({});
 
 function AuthProvider({ children }) {
-    const [data, setData] = useState({})
+    const [data, setData] = useState({});
 
     async function signIn ({ email, password }) {
         try{
-            const response = await api.post('/sessions', { email, password })
-            const { user, token } = response.data
+            const response = await api.post("/sessions", { email, password });
+            const { user, token } = response.data;
 
-            localStorage.setItem('@rocketnotes:user', JSON.stringify(user))
-            localStorage.setItem('@rocketnotes:token', token)
+            localStorage.setItem("@rocketnotes:user", JSON.stringify(user));
+            localStorage.setItem("@rocketnotes:token", token);
 
-            api.defaults.headers.common['Authorization'] = `Bearer ${token}`
-            setData({ user, token })
+            api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+            setData({ user, token });
 
         } catch (error) {
             if (error.response) {
-                alert(error.response.data.message)
+                alert(error.response.data.message);
             } else {
-                alert('Não foi possível entrar')
+                alert("Não foi possível entrar");
             }
         }
     }
 
     function signOut(){
-        localStorage.removeItem('@rocketnotes:token')
-        localStorage.removeItem('@rocketnotes:user')
+        localStorage.removeItem("@rocketnotes:token");
+        localStorage.removeItem("@rocketnotes:user");
 
-        setData({})
+        setData({});
     }
 
     async function updateProfile({ user, avatarFile }){
       try {
         if (avatarFile) {
-          const fileUploadForm = new FormData()
-          fileUploadForm.append('avatar', avatarFile)
+          const fileUploadForm = new FormData();
+          fileUploadForm.append("avatar", avatarFile);
 
-          const response = await api.patch('/users/avatar', fileUploadForm)
-          user.avatar = response.data.avatar
+          const response = await api.patch("/users/avatar", fileUploadForm);
+          user.avatar = response.data.avatar;
         }
 
-        await api.put('/users', user)
-        localStorage.setItem('@rocketnotes:user', JSON.stringify(user))
+        await api.put("/users", user);
+        localStorage.setItem("@rocketnotes:user", JSON.stringify(user));
         
-        setData({ user, token: data.token })
-        alert('Perfil atualizado')
+        setData({ user, token: data.token });
+        alert("Perfil atualizado");
 
       } catch (error) {
           if (error.response) {
-              alert(error.response.data.message)
+              alert(error.response.data.message);
           } else {
-              alert('Não foi possível atualizar o perfil')
+              alert("Não foi possível atualizar o perfil");
           }
       }
     }
 
     useEffect(() => {
-        const token = localStorage.getItem('@rocketnotes:token')
-        const user = localStorage.getItem('@rocketnotes:user')
+        const token = localStorage.getItem("@rocketnotes:token");
+        const user = localStorage.getItem("@rocketnotes:user");
         if (token && user){
-            api.defaults.headers.common['Authorization'] = `Bearer ${token}`
+            api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
             setData({
                 token,
                 user: JSON.parse(user)
-            })
+            });
         }
 
-    }, [])
+    }, []);
 
     return (
         <AuthContext.Provider value = {{ 
@@ -85,13 +85,13 @@ function AuthProvider({ children }) {
         }}>
             { children }
         </AuthContext.Provider>
-    )
+    );
 }
 
 function useAuth(){
-  const context = useContext(AuthContext)
-  console.log("Meu contexto => ", context)
-  return context
+  const context = useContext(AuthContext);
+  console.log("Meu contexto => ", context);
+  return context;
 }
 
-export { AuthProvider, useAuth }
+export { AuthProvider, useAuth };

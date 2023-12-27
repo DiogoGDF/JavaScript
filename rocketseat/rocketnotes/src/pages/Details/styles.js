@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const Container = styled.div`
     width: 100%;
@@ -15,7 +15,7 @@ export const Container = styled.div`
         overflow-y: scroll;
         padding: 64px 0;
     }
-`
+`;
 
 export const Links = styled.ul`
     list-style: none;
@@ -27,7 +27,7 @@ export const Links = styled.ul`
     a {
         color: ${({ theme }) => theme.COLORS.WHITE};
     }
-`
+`;
 
 export const Content = styled.div `
     max-width: 550px;
@@ -51,4 +51,4 @@ export const Content = styled.div `
         margin-top: 16px;
         text-align: justify;
     }
-`
+`;

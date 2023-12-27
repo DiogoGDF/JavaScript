@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
@@ -20,7 +20,7 @@ export const Container = styled.div`
     justify-content: space-between;
     flex-wrap: wrap;
   }
-`
+`;
 
 export const Form = styled.form`
   max-width: 550px;
@@ -38,4 +38,4 @@ export const Form = styled.form`
       color: ${({ theme }) => theme.COLORS.GRAY_100}
     }
   }
-`
+`;

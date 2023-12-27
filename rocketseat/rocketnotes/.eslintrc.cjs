@@ -16,5 +16,9 @@ module.exports = {
       'warn',
       { allowConstantExport: true },
     ],
+    'semi' : ["warn", "always"],
+    "quotes": ["warn", "double", { "avoidEscape": true, "allowTemplateLiterals": true }],
+    "no-multiple-empty-lines": ["warn", { "max": 1, "maxEOF": 1, "maxBOF": 0 }]
+
   },
 }

@@ -1,13 +1,13 @@
-import { FiPlus, FiX } from 'react-icons/fi'
+import { FiPlus, FiX } from "react-icons/fi";
 
-import { Container } from './styles'
-import PropTypes from 'prop-types'
+import { Container } from "./styles";
+import PropTypes from "prop-types";
 
 NoteItem.propTypes = {
     value: PropTypes.isRequired,
     isNew: PropTypes.bool,
     onClick: PropTypes.isRequired
-}
+};
 
 export function NoteItem({ isNew, value, onClick, ...rest }) {
   return (
@@ -22,10 +22,10 @@ export function NoteItem({ isNew, value, onClick, ...rest }) {
       <button
         type="button"
         onClick={onClick}
-        className={isNew ? 'button-add' : 'button-delete'}
+        className={isNew ? "button-add" : "button-delete"}
       >
         {isNew ? <FiPlus /> : <FiX />}
       </button>
     </Container>
-  )
+  );
 }

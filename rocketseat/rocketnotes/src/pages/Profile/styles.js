@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
@@ -19,7 +19,7 @@ export const Container = styled.div`
       font-size: 24px;
     }
   }
-`
+`;
 
 export const Form = styled.form`
   max-width: 340px;
@@ -28,7 +28,7 @@ export const Form = styled.form`
   > div:nth-child(4) {
     margin-top: 24px;
   }
-`
+`;
 
 export const Avatar = styled.div`
   position: relative;
@@ -70,4 +70,4 @@ export const Avatar = styled.div`
       color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
     }
   }
-`
+`;
