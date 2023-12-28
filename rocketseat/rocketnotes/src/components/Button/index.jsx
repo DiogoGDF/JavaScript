@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 export function Button({ title, loading = false, ...rest }){
     return(
-        <Container 
+        <Container
             type="button"
             disabled={loading}
             {...rest}

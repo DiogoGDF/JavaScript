@@ -19,7 +19,7 @@ export function Header(){
     return(
         <Container>
             <Profile to="/profile">
-                <img 
+                <img
                     src={avatarUrl}
                     alt={user.name}
                 />
