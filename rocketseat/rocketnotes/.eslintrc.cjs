@@ -20,6 +20,9 @@ module.exports = {
         "quotes": ["warn", "double", { "avoidEscape": true, "allowTemplateLiterals": true }],
         "no-multiple-empty-lines": ["warn", { "max": 1, "maxEOF": 1, "maxBOF": 0 }],
         "indent": ["warn", 4],
+        "comma-dangle": "warn",
+        "no-tabs": ["warn"],
+        "no-lone-blocks": ["warn"],
         "no-trailing-spaces" : "warn"
     },
 }
