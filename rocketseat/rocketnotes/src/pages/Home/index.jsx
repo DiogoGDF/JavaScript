@@ -49,60 +49,60 @@ export function Home() {
         fetchNotes();
     }, [selectedTags, search]);
 
-  return (
-    <Container>
-      <Brand>
-        <h1>Rocketnotes</h1>
-      </Brand>
+    return (
+        <Container>
+            <Brand>
+                <h1>Rocketnotes</h1>
+            </Brand>
 
-      <Header />
+            <Header />
 
-      <Menu>
-        <li>
-          <ButtonText
-            title="Todos"
-            onClick={() => handleSelectedTag("all")}
-            $isactive={selectedTags.length === 0}
-          />
-        </li>
-        {tags &&
+            <Menu>
+                <li>
+                    <ButtonText
+                        title="Todos"
+                        onClick={() => handleSelectedTag("all")}
+                        $isactive={selectedTags.length === 0}
+                    />
+                </li>
+                {tags &&
           tags.map((tag) => (
-            <li key={String(tag.id)}>
-              <ButtonText
-                title={tag.name}
-                onClick={() => handleSelectedTag(tag.name)}
-                $isactive={selectedTags.includes(tag.name)}
-              />
-            </li>
+              <li key={String(tag.id)}>
+                  <ButtonText
+                      title={tag.name}
+                      onClick={() => handleSelectedTag(tag.name)}
+                      $isactive={selectedTags.includes(tag.name)}
+                  />
+              </li>
           ))}
-      </Menu>
+            </Menu>
 
-      <Search>
-        <Input
-          placeholder="Pesquisar pelo título"
-          onChange={(e) => setSearch(e.target.value)}
-          icon={FiSearch}
-        />
-      </Search>
+            <Search>
+                <Input
+                    placeholder="Pesquisar pelo título"
+                    onChange={(e) => setSearch(e.target.value)}
+                    icon={FiSearch}
+                />
+            </Search>
 
-      <Content>
-        <Section title="Minhas notas">
-          {
-            notes.map(note => (
-            <Note
-                key={String(note.id)}
-                data={note}
-                onClick={() => handleDetails(note.id)}
-            />
-            ))
-          }
-        </Section>
-      </Content>
+            <Content>
+                <Section title="Minhas notas">
+                    {
+                        notes.map(note => (
+                            <Note
+                                key={String(note.id)}
+                                data={note}
+                                onClick={() => handleDetails(note.id)}
+                            />
+                        ))
+                    }
+                </Section>
+            </Content>
 
-      <NewNote to="/new">
-        <FiPlus />
-        Criar nota
-      </NewNote>
-    </Container>
-  );
+            <NewNote to="/new">
+                <FiPlus />
+                Criar nota
+            </NewNote>
+        </Container>
+    );
 }
